@@ -31,26 +31,26 @@ int input_jumlah () {
 
 float bobot_nilai (mahasiswa &a1) {
     float total_nilai ;
-    total_nilai = a1.data.uts * 0.4 + a1.data.uas * 0.35 + a1.data.tugas * 0.25;
+    total_nilai = a1.data.uts * 0.35 + a1.data.uas * 0.4 + a1.data.tugas * 0.25;
     return total_nilai ; 
 }
 
 void data_siswa (mahasiswa &a1) {
-    
-    cout << "====== DATA MAHASISWA " << " ======\n" ;
+    cin.ignore () ;
+    cout << "====== ISI DATA MAHASISWA " << " ======\n" ;
     cout << "masukkan nama : " ;
-    cin >> a1.nama ;
+    getline(cin,a1.nama);
     cout << "masukkan umur : " ;
     cin >> a1.umur ;
+    cin.ignore () ;
     cout << "masukkan jurusan : " ;
-    cin >> a1.jurusan ;
+    getline(cin,a1.jurusan) ;
     cout << "masukkan tanggal lahir [contoh: 29 11 2009 (kasih space jangan enter)]: " ;
     cin >> a1.lahir.hari >> a1.lahir.bulan >> a1.lahir.tahun ;
     cout << endl ;
 }
 
 void nilai_siswa (mahasiswa &a1) {
-    
     cout << "|| masukkan nilai || \n" ;
     cout << "UTS : " ;
     cin >> a1.data.uts ;
@@ -61,7 +61,6 @@ void nilai_siswa (mahasiswa &a1) {
     cout << endl ;
 }
 
-    
 void tampil (mahasiswa &a1) {
     cout << "----|| Data Siswa ||----" << endl ;
     cout << "Nama             : " << a1.nama << endl ;
@@ -74,20 +73,21 @@ void tampil (mahasiswa &a1) {
     cout << "UAS              : " << a1.data.uas << endl ;
     cout << "TUGAS            : " << a1.data.tugas << endl ;
     cout << "|Bobot nilai       \n|uas 40% \n|uts 35% \n|tugas 25% \n|Nilai Akhir : " ;
-
     cout << bobot_nilai (a1) ;
-
     cout << endl ;
 }
 
 int main () {
     int jumlah = input_jumlah () ;
-
+        mahasiswa a1 [jumlah] ;
         for (int i = 0 ; i < jumlah ; i++) {
-        mahasiswa a1 ;
-        data_siswa (a1) ;
-        nilai_siswa (a1) ;
-        tampil (a1) ;
+            
+        cout << "\n==============================\n";
+        cout << "Data Mahasiswa ke-" << i + 1 << endl;
+
+        data_siswa (a1 [i]) ;
+        nilai_siswa (a1 [i]) ;
+        tampil (a1[i]) ;
 
     }
     
