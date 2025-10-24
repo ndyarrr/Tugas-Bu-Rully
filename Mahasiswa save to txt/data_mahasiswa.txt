@@ -1,0 +1,84 @@
+----|| Data Siswa ||----
+NISN             : 1234567
+Nama             : Fandy Ahmad Riyanto
+Umur             : 16
+Jurusan          : X RPL 1
+Tanggal lahir    : 29/11/2009
+
+-- DATA NILAI SISWA -- 
+UTS              : 
+MTK : 89
+BIN : 89
+BIG : 95
+IPA : 96
+UAS              : 
+MTK : 85
+BIN : 87
+BIG : 90
+IPA : 98
+TUGAS            : 
+MTK : 90
+BIN : 87
+BIG : 98
+IPA : 81
+rata nilai UTS   : 91.6
+rata nilai UAS   : 89.1
+rata nilai TUGAS : 89.05
+Nilai Akhir      : 89.9167
+
+----|| Data Siswa ||----
+NISN             : 12345
+Nama             : Dedi Permana
+Umur             : 16
+Jurusan          : X DKV 2
+Tanggal lahir    : 29/11/2009
+
+-- DATA NILAI SISWA -- 
+UTS              : 
+MTK : 98
+BIN : 76
+BIG : 76
+IPA : 76
+UAS              : 
+MTK : 89
+BIN : 78
+BIG : 90
+IPA : 98
+TUGAS            : 
+MTK : 79
+BIN : 84
+BIG : 87
+IPA : 83
+rata nilai UTS   : 83.7
+rata nilai UAS   : 88.25
+rata nilai TUGAS : 82.65
+Nilai Akhir      : 84.8667
+
+----|| Data Siswa ||----
+NISN             : 321456
+Nama             : Ahmad Yazril Lord Amba
+Umur             : 99
+Jurusan          : ANIMASI
+Tanggal lahir    : 1/1/1000
+
+-- DATA NILAI SISWA -- 
+UTS              : 
+MTK : 67
+BIN : 76
+BIG : 54
+IPA : 68
+UAS              : 
+MTK : 100
+BIN : 54
+BIG : 56
+IPA : 78
+TUGAS            : 
+MTK : 90
+BIN : 76
+BIG : 56
+IPA : 78
+rata nilai UTS   : 66.85
+rata nilai UAS   : 75.3
+rata nilai TUGAS : 77.3
+Nilai Akhir      : 73.15
+
