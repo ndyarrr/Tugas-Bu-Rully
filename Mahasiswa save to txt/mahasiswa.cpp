@@ -1,7 +1,6 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-
 using namespace std ;
 
 struct tanggal {
@@ -369,3 +368,4 @@ int main () {
         return 0 ;
     
 }
+
