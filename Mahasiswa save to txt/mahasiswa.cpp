@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
-#include <vector>
-#include <algorithm>
+#include <string>
+
 using namespace std ;
 
 struct tanggal {
@@ -260,53 +260,58 @@ void urutkan_data() {
         float rata;
     };
 
-    vector<data_ringkas> daftar;
+    data_ringkas daftar[100]; 
+    int jumlah = 0;
     string baris;
-    data_ringkas m;
+    data_ringkas data;
 
     while (getline(file, baris)) {
         if (baris.find("NISN") != string::npos) {
-            m = {}; 
-            m.nisn = baris.substr(baris.find(":") + 2);
+            data = {}; 
+            data.nisn = baris.substr(baris.find(":") + 2);
         } 
         else if (baris.find("Nama") != string::npos) {
-            m.nama = baris.substr(baris.find(":") + 2);
+            data.nama = baris.substr(baris.find(":") + 2);
         } 
         else if (baris.find("Jurusan") != string::npos) {
-            m.jurusan = baris.substr(baris.find(":") + 2);
+            data.jurusan = baris.substr(baris.find(":") + 2);
         } 
         else if (baris.find("Nilai Akhir") != string::npos) {
-
             string nilaiStr = baris.substr(baris.find(":") + 2);
             try {
-                m.rata = stof(nilaiStr);
+                data.rata = stof(nilaiStr);
             } catch (...) {
-                m.rata = 0;
+                data.rata = 0;
             }
-            daftar.push_back(m);
+            daftar[jumlah++] = data;
         }
     }
     file.close();
 
-    if (daftar.empty()) {
+    if (jumlah == 0) {
         cout << "Tidak ada data nilai ditemukan.\n";
         return;
     }
 
-    sort(daftar.begin(), daftar.end(), [](data_ringkas a, data_ringkas b) {
-        return a.rata > b.rata;
-    });
+    // === Bubble sort manual ===
+    for (int i = 0; i < jumlah - 1; i++) {
+        for (int j = 0; j < jumlah - i - 1; j++) {
+            if (daftar[j].rata < daftar[j + 1].rata) {
+                data_ringkas temp = daftar[j];
+                daftar[j] = daftar[j + 1];
+                daftar[j + 1] = temp;
+            }
+        }
+    }
 
     cout << "\n=== Data Siswa Berdasarkan Nilai Tertinggi ===\n";
-    int ranking = 1;
-    for (auto &d : daftar) {
-        cout << "Rangking  : " << ranking++ << endl;
-        cout << "NISN      : " << d.nisn << endl;
-        cout << "Nama      : " << d.nama << endl;
-        cout << "Jurusan   : " << d.jurusan << endl;
-        cout << "Nilai Akhir: " << d.rata << endl;
-        cout << "-----------------------------\n";
-        cout << " " << endl ;
+    for (int i = 0; i < jumlah; i++) {
+        cout << "Rangking  : " << i + 1 << endl;
+        cout << "NISN      : " << daftar[i].nisn << endl;
+        cout << "Nama      : " << daftar[i].nama << endl;
+        cout << "Jurusan   : " << daftar[i].jurusan << endl;
+        cout << "Nilai Akhir: " << daftar[i].rata << endl;
+        cout << "-----------------------------\n\n";
     }
 }
 
